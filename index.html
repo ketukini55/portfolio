@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <script>
-        function playClickSound() {
-            const audio = new Audio('click-sound.mp3'); // path to your sound file
-            audio.play();
+    <style>
+        /* Your existing CSS */
+        .scroll-to-top {
+            cursor: pointer;
         }
-    </script>
+    </style>
 </head>
 <body>
-    <header>
-        <h1 onclick="playClickSound()">Welcome to My Portfolio</h1>
-    </header>
-    <main>
-        <button onclick="playClickSound()">Click Me!</button>
-        <a href="#" onclick="playClickSound()">Link</a>
-        <p>Check out my projects.</p>
-    </main>
-    <footer>
-        <p onclick="playClickSound()">Contact Me</p>
-    </footer>
+    <nav>
+        <span class="scroll-to-top" onclick="scrollToTop()">Ketan Kini</span>
+    </nav>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            playClickSound();
+        }
+
+        function playClickSound() {
+            // Code to play the click sound
+        }
+    </script>
+    <!-- Your existing HTML content -->
 </body>
 </html>
