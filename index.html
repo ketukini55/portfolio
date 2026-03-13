@@ -22,15 +22,23 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-content">
-            <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="cursor: pointer;">
+            <div class="logo" onclick="scrollToTop()" style="cursor: pointer;">
                 <span class="logo-emoji">✨</span>
                 <span class="logo-text">Ketan Kini</span>
             </div>
-            <ul class="nav-links">
+            
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#uiux" class="nav-link">🎨 UI/UX</a></li>
                 <li><a href="#graphic" class="nav-link">🖌️ Graphic</a></li>
                 <li><a href="#htmlcss" class="nav-link">💻 Web Dev</a></li>
-                <li><a href="#certificates" class="nav-link">📜 Certificates</a></li>
+                <li><a href="#certificates" class="nav-link">🎖️ Certificates</a></li>
                 <li><a href="#contact" class="nav-link">💬 Contact</a></li>
             </ul>
         </div>
@@ -176,7 +184,7 @@
         </div>
     </section>
 
-    <!-- Web Development Section -->
+    <!-- HTML/CSS Section -->
     <section id="htmlcss" class="portfolio-section section-htmlcss">
         <div class="section-background"></div>
         <div class="section-container">
@@ -226,53 +234,6 @@
         </div>
     </section>
 
-    <!-- Certificates Section -->
-    <section id="certificates" class="portfolio-section section-certificates">
-        <div class="section-background"></div>
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-badge">📜 My Certificates</div>
-                <h2>Professional Achievements</h2>
-                <p>Certifications and credentials that showcase my expertise</p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <div class="card-icon">🎓</div>
-                    <div class="card-content">
-                        <h3>Certificate Title 1</h3>
-                        <p>Add your certificate description here</p>
-                        <div class="card-tags">
-                            <span class="tag">#Skills</span>
-                            <span class="tag">#Achievement</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-card">
-                    <div class="card-icon">🎓</div>
-                    <div class="card-content">
-                        <h3>Certificate Title 2</h3>
-                        <p>Add your certificate description here</p>
-                        <div class="card-tags">
-                            <span class="tag">#Skills</span>
-                            <span class="tag">#Achievement</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-card">
-                    <div class="card-icon">🎓</div>
-                    <div class="card-content">
-                        <h3>Certificate Title 3</h3>
-                        <p>Add your certificate description here</p>
-                        <div class="card-tags">
-                            <span class="tag">#Skills</span>
-                            <span class="tag">#Achievement</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Skills Section -->
     <section class="skills-section">
         <div class="section-container">
@@ -297,6 +258,71 @@
                     <span class="skill-icon">🎬</span>
                     <h3>Animation</h3>
                     <p>CSS & JavaScript</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="portfolio-section section-certificates">
+        <div class="section-background"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">🎖️ Certificates & Achievements</div>
+                <h2>My Certifications</h2>
+                <p>Professional certifications and achievements</p>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">🏆</div>
+                        <div class="cert-ribbon">Certificate</div>
+                    </div>
+                    <div class="cert-body">
+                        <h3>UI/UX Design Mastery</h3>
+                        <p class="cert-issuer">Udemy / Coursera</p>
+                        <p class="cert-date">📅 Issued: January 2024</p>
+                        <p class="cert-desc">Advanced UI/UX design principles and best practices</p>
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">⭐</div>
+                        <div class="cert-ribbon">Certificate</div>
+                    </div>
+                    <div class="cert-body">
+                        <h3>Web Development Pro</h3>
+                        <p class="cert-issuer">Freecodecamp</p>
+                        <p class="cert-date">📅 Issued: December 2023</p>
+                        <p class="cert-desc">HTML, CSS, JavaScript full-stack development</p>
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">🎨</div>
+                        <div class="cert-ribbon">Certificate</div>
+                    </div>
+                    <div class="cert-body">
+                        <h3>Graphic Design Basics</h3>
+                        <p class="cert-issuer">Adobe</p>
+                        <p class="cert-date">📅 Issued: November 2023</p>
+                        <p class="cert-desc">Adobe Suite mastery - Photoshop, Illustrator, XD</p>
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">💻</div>
+                        <div class="cert-ribbon">Certificate</div>
+                    </div>
+                    <div class="cert-body">
+                        <h3>Responsive Design</h3>
+                        <p class="cert-issuer">Google</p>
+                        <p class="cert-date">📅 Issued: October 2023</p>
+                        <p class="cert-desc">Mobile-first and responsive web design</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -327,7 +353,7 @@
                         <p><a href="https://instagram.com/keee_7_" target="_blank">@keee_7_</a></p>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" onsubmit="handleContactForm(event)">
                     <div class="form-group">
                         <input type="text" placeholder="Your Name" class="form-input" required>
                     </div>
