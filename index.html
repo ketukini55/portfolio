@@ -4,49 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>My Portfolio</title>
+    <title>Portfolio</title>
+    <style>
+        /* Add animated background */
+        body {
+            background: url('background.gif') no-repeat center center fixed;
+            animation: backgroundAnimation 30s infinite;
+        }
+        @keyframes backgroundAnimation {
+            /* Define the animation for background */
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Cursor effect */
+        .cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: red;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Scroll to top */
+        #logo {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#portfolio" id="myPortfolioLink">My Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-    </header>
-    <main>
-        <section id="portfolio">
-            <h2>My Projects</h2>
-            <div class="project">
-                <h3>Project 1</h3>
-                <p>Description of project 1.</p>
-            </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>Description of project 2.</p>
-            </div>
-            <!-- Add more projects as needed -->
-        </section>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Information about me.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Contact information.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 My Portfolio</p>
-    </footer>
+    <div id="logo" onclick="scrollToTop()">
+        <img src="logo.png" alt="Logo">
+    </div>
     <script>
-        // Scroll to top functionality
-        document.getElementById('myPortfolioLink').addEventListener('click', function() {
-            document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
         });
     </script>
+    <section id="uiux">
+        <h2>UI/UX Design</h2>
+        <!-- Content for UI/UX Design section -->
+    </section>
+    <section id="graphic-design">
+        <h2>Graphic Design</h2>
+        <!-- Content for Graphic Design section -->
+    </section>
+    <section id="web-dev">
+        <h2>Web Development</h2>
+        <!-- Content for Web Development section -->
+    </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <!-- Content for Skills section -->
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <!-- Content for Contact section -->
+    </section>
 </body>
 </html>
