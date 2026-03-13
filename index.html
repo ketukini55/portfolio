@@ -3,61 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>✨ Ketan Kini - Creative Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#work">My Work</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Cursor Effect -->
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo">
+                <span class="logo-emoji">✨</span>
+                <span class="logo-text">Ketan Kini</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#uiux" class="nav-link">🎨 UI/UX</a></li>
+                <li><a href="#graphic" class="nav-link">🖌️ Graphic</a></li>
+                <li><a href="#htmlcss" class="nav-link">💻 Web Dev</a></li>
+                <li><a href="#contact" class="nav-link">💬 Contact</a></li>
             </ul>
-        </nav>
-    </header>
-    <section id="hero">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Showcasing my work in UI/UX Design, Graphic Design, and HTML/CSS.</p>
-    </section>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a passionate designer with experience in various design fields.</p>
-    </section>
-    <section id="work">
-        <h2>My Work</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>UI/UX Design</h3>
-                <p>Details about UI/UX projects I've worked on.</p>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="greeting">👋 Welcome to my creative space!</div>
+            <h1 class="hero-title">
+                <span class="title-line">I'm Ketan Kini</span>
+                <span class="title-line highlight">Creative Designer & Developer</span>
+            </h1>
+            <p class="hero-subtitle">
+                ✨ Crafting beautiful UI/UX experiences | 🎨 Creating stunning graphics | 💻 Building responsive websites
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="resumeBtn">
+                    <i class="fas fa-download"></i> Download Resume
+                </button>
+                <button class="btn btn-secondary" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-paper-plane"></i> Get In Touch
+                </button>
             </div>
-            <div class="project">
-                <h3>Graphic Design</h3>
-                <p>Details about my graphic design works.</p>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card card-1">
+                <span class="card-emoji">🎨</span>
+                <p>Design</p>
             </div>
-            <div class="project">
-                <h3>HTML/CSS</h3>
-                <p>Examples of my HTML/CSS coding skills.</p>
+            <div class="floating-card card-2">
+                <span class="card-emoji">💻</span>
+                <p>Code</p>
+            </div>
+            <div class="floating-card card-3">
+                <span class="card-emoji">🚀</span>
+                <p>Create</p>
+            </div>
+            <div class="floating-card card-4">
+                <span class="card-emoji">✨</span>
+                <p>Inspire</p>
             </div>
         </div>
     </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <form method="post" action="/submit-form">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
-            <label for="instagram">Instagram:</label>
-            <input type="text" id="instagram" name="instagram" required>
-            <button type="submit">Submit</button>
-        </form>
-        <p>Contact me via email, phone, or Instagram for inquiries.</p>
+
+    <!-- UI/UX Section -->
+    <section id="uiux" class="portfolio-section section-uiux">
+        <div class="section-background"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">🎨 UI/UX Design</div>
+                <h2>Beautiful User Experiences</h2>
+                <p>Designing interfaces that users love to interact with</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="card-icon">📱</div>
+                    <div class="card-content">
+                        <h3>Mobile App Design</h3>
+                        <p>Crafted intuitive interfaces for seamless user experiences</p>
+                        <div class="card-tags">
+                            <span class="tag">#UI</span>
+                            <span class="tag">#UX</span>
+                            <span class="tag">#Mobile</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-content">
+                        <h3>Web Platform UI</h3>
+                        <p>Modern and responsive design for web applications</p>
+                        <div class="card-tags">
+                            <span class="tag">#Web</span>
+                            <span class="tag">#Responsive</span>
+                            <span class="tag">#Modern</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="card-icon">🔍</div>
+                    <div class="card-content">
+                        <h3>User Research</h3>
+                        <p>Data-driven insights for better design decisions</p>
+                        <div class="card-tags">
+                            <span class="tag">#Research</span>
+                            <span class="tag">#UX</span>
+                            <span class="tag">#Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <footer>
-        <p>&copy; 2026 ketukini55. All rights reserved.</p>
+
+    <!-- Graphic Design Section -->
+    <section id="graphic" class="portfolio-section section-graphic">
+        <div class="section-background"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">🖌️ Graphic Design</div>
+                <h2>Visual Storytelling Magic</h2>
+                <p>Bringing ideas to life with stunning visuals</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-content">
+                        <h3>Branding</h3>
+                        <p>Logo design and brand identity creation</p>
+                        <div class="card-tags">
+                            <span class="tag">#Logo</span>
+                            <span class="tag">#Brand</span>
+                            <span class="tag">#Identity</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="card-icon">📸</div>
+                    <div class="card-content">
+                        <h3>Social Media Graphics</h3>
+                        <p>Engaging visuals for digital marketing campaigns</p>
+                        <div class="card-tags">
+                            <span class="tag">#Social</span>
+                            <span class="tag">#Marketing</span>
+                            <span class="tag">#Visual</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="card-icon">🎨</div>
+                    <div class="card-content">
+                        <h3>Illustration</h3>
+                        <p>Custom illustrations and artistic creations</p>
+                        <div class="card-tags">
+                            <span class="tag">#Art</span>
+                            <span class="tag">#Creative</span>
+                            <span class="tag">#Custom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HTML/CSS Section -->
+    <section id="htmlcss" class="portfolio-section section-htmlcss">
+        <div class="section-background"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">💻 Web Development</div>
+                <h2>Code Crafted With Care</h2>
+                <p>Responsive, clean, and modern web experiences</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="card-icon">📐</div>
+                    <div class="card-content">
+                        <h3>Responsive Websites</h3>
+                        <p>Mobile-first design with HTML/CSS</p>
+                        <div class="card-tags">
+                            <span class="tag">#Responsive</span>
+                            <span class="tag">#Mobile</span>
+                            <span class="tag">#HTML</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-content">
+                        <h3>Interactive Elements</h3>
+                        <p>Smooth animations and engaging interactions</p>
+                        <div class="card-tags">
+                            <span class="tag">#Animation</span>
+                            <span class="tag">#Interactive</span>
+                            <span class="tag">#JS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-content">
+                        <h3>Web Standards</h3>
+                        <p>Semantic HTML and modern CSS practices</p>
+                        <div class="card-tags">
+                            <span class="tag">#Standards</span>
+                            <span class="tag">#CSS</span>
+                            <span class="tag">#Best</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="section-container">
+            <h2>My Skills & Tools 🛠️</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">🎨</span>
+                    <h3>UI/UX Design</h3>
+                    <p>Figma, Adobe XD</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🎭</span>
+                    <h3>Graphic Design</h3>
+                    <p>Adobe Suite, Canva</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">💻</span>
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🎬</span>
+                    <h3>Animation</h3>
+                    <p>CSS & JavaScript</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2>Let's Create Magic Together! ✨</h2>
+                <p>Have an amazing project in mind? I'd love to hear from you!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <h3>Email Me</h3>
+                        <p><a href="mailto:ketankini0708@gmail.com">ketankini0708@gmail.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📱</div>
+                        <h3>Call Me</h3>
+                        <p><a href="tel:+919529860298">+91 95298 60298</a></p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📸</div>
+                        <h3>Follow Me</h3>
+                        <p><a href="https://instagram.com/keee_7_" target="_blank">@keee_7_</a></p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" class="form-textarea" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Designed & Developed with ❤️ by Ketan Kini</p>
+            <div class="social-links">
+                <a href="https://instagram.com/keee_7_" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:ketankini0708@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Audio for click sound -->
+    <audio id="clickSound" preload="auto">
+        <source src="click-sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
