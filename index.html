@@ -3,55 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <title>My Portfolio</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#portfolio" id="myPortfolioLink">My Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#uiux">UI/UX Design</a></li>
-                <li><a href="#graphic">Graphic Design</a></li>
-                <li><a href="#webdev">Web Development</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <button onclick="scrollToTop()">Logo</button>
+        <h1>Welcome to My Portfolio</h1>
     </header>
     <main>
+        <section id="portfolio">
+            <h2>My Projects</h2>
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Description of project 1.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Description of project 2.</p>
+            </div>
+            <!-- Add more projects as needed -->
+        </section>
         <section id="about">
-            <h1>About Me</h1>
-            <p>Welcome to my portfolio!</p>
-        </section>
-        <section id="uiux">
-            <h2>UI/UX Design</h2>
-            <p>Expanded content for UI/UX Design.</p>
-        </section>
-        <section id="graphic">
-            <h2>Graphic Design</h2>
-            <p>Expanded content for Graphic Design.</p>
-        </section>
-        <section id="webdev">
-            <h2>Web Development</h2>
-            <p>Expanded content for Web Development.</p>
-        </section>
-        <section id="skills">
-            <h2>Skills</h2>
-            <p>List of skills.</p>
+            <h2>About Me</h2>
+            <p>Information about me.</p>
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p>Contact information here.</p>
+            <p>Contact information.</p>
         </section>
     </main>
+    <footer>
+        <p>&copy; 2026 My Portfolio</p>
+    </footer>
     <script>
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            var audio = new Audio('click-sound.mp3');
-            audio.play();
-        }
+        // Scroll to top functionality
+        document.getElementById('myPortfolioLink').addEventListener('click', function() {
+            document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
