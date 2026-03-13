@@ -1,112 +1,144 @@
-// ============================================
-// CURSOR TRACKING EFFECT
-// ============================================
+/* ============================================
+   CUSTOM CURSOR
+   ============================================ */
 const cursor = document.querySelector('.cursor');
 const cursorRing = document.querySelector('.cursor-ring');
-const clickSound = document.getElementById('clickSound');
 
 document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX - 6 + 'px';
-    cursor.style.top = e.clientY - 6 + 'px';
-    
-    cursorRing.style.left = (e.clientX - 18) + 'px';
-    cursorRing.style.top = (e.clientY - 18) + 'px';
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    cursorRing.style.left = e.clientX - 18 + 'px';
+    cursorRing.style.top = e.clientY - 18 + 'px';
 });
 
-// Hide default cursor and show custom cursor
-document.addEventListener('mouseover', () => {
-    document.body.style.cursor = 'none';
+document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+    cursorRing.style.opacity = '1';
 });
 
-// ============================================
-// HAMBURGER MENU FUNCTIONALITY
-// ============================================
+document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+    cursorRing.style.opacity = '0';
+});
+
+/* ============================================
+   HAMBURGER MENU TOGGLE
+   ============================================ */
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
-
-// Close menu when a link is clicked
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
-});
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.navbar')) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-    }
-});
-
-// ============================================
-// SOUND EFFECTS
-// ============================================
-const buttons = document.querySelectorAll('.btn, .nav-link, .portfolio-card, .skill-item, .social-link');
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        playClickSound();
-    });
-    
-    // Add hover effect
-    button.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'scale(1.5)';
-        cursorRing.style.transform = 'scale(1.2)';
-    });
-    
-    button.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'scale(1)';
-        cursorRing.style.transform = 'scale(1)';
-    });
-});
-
-function playClickSound() {
-    clickSound.currentTime = 0;
-    clickSound.play().catch(() => {
-        console.log('Sound playback restricted');
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
     });
 }
 
-// ============================================
-// SMOOTH SCROLL BEHAVIOR
-// ============================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
+/* ============================================
+   NAVBAR SCROLL EFFECT
+   ============================================ */
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
 });
 
-// ============================================
-// SCROLL TO TOP FUNCTION
-// ============================================
+/* ============================================
+   SCROLL TO TOP
+   ============================================ */
 function scrollToTop() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
-    playClickSound();
 }
 
-// ============================================
-// INTERSECTION OBSERVER FOR ANIMATIONS
-// ============================================
-const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -100px 0px'
-};
+/* ============================================
+   CONTACT FORM HANDLER
+   ============================================ */
+function handleContactForm(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const name = form.querySelector('input[type="text"]').value;
+    const email = form.querySelector('input[type="email"]').value;
+    const message = form.querySelector('textarea').value;
+    
+    // Validate form
+    if (!name || !email || !message) {
+        alert('Please fill all fields');
+        return;
+    }
+    
+    // Create mailto link
+    const mailtoLink = `mailto:ketankini0708@gmail.com?subject=New Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    // Reset form
+    form.reset();
+}
+
+/* ============================================
+   RESUME DOWNLOAD
+   ============================================ */
+document.getElementById('resumeBtn').addEventListener('click', function() {
+    // Replace 'your-resume.pdf' with your actual resume file
+    const resumeUrl = 'resume.pdf'; // Place your resume.pdf in the root folder
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'Ketan_Kini_Resume.pdf';
+    
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
+/* ============================================
+   BUTTON CLICK SOUND EFFECT
+   ============================================ */
+const clickSound = document.getElementById('clickSound');
+
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function() {
+        // Play sound effect
+        if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(err => console.log('Sound play failed:', err));
+        }
+    });
+});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+        // Play sound effect
+        if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(err => console.log('Sound play failed:', err));
+        }
+    });
+});
+
+/* ============================================
+   SCROLL REVEAL ANIMATION
+   ============================================ */
+const revealElements = document.querySelectorAll('.portfolio-card, .skill-item, .certificate-card');
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -116,82 +148,69 @@ const observer = new IntersectionObserver((entries) => {
             observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
-
-// Add animation to cards on scroll
-document.querySelectorAll('.portfolio-card, .skill-item, .certificate-card, .section-header').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-    observer.observe(el);
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
 });
 
-// ============================================
-// RESUME DOWNLOAD BUTTON FUNCTIONALITY
-// ============================================
-const resumeBtn = document.getElementById('resumeBtn');
-if (resumeBtn) {
-    resumeBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        playClickSound();
-        // Replace 'resume.pdf' with your actual resume file path
-        const resumeUrl = 'resume.pdf';
-        const link = document.createElement('a');
-        link.href = resumeUrl;
-        link.download = 'Ketan_Kini_Resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+revealElements.forEach(element => {
+    observer.observe(element);
+});
+
+/* ============================================
+   SMOOTH SCROLL FOR ANCHOR LINKS
+   ============================================ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
-}
-
-// ============================================
-// CONTACT FORM HANDLER
-// ============================================
-function handleContactForm(event) {
-    event.preventDefault();
-    playClickSound();
-    
-    const form = event.target;
-    const formData = new FormData(form);
-    
-    // You can send this to your backend or email service
-    console.log('Form submitted:', Object.fromEntries(formData));
-    
-    // Show success message
-    alert('Thank you for your message! I will get back to you soon.');
-    form.reset();
-}
-
-// ============================================
-// SCROLL ANIMATIONS FOR NAVBAR
-// ============================================
-let lastScrollY = 0;
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    lastScrollY = window.scrollY;
-    
-    if (lastScrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
 });
 
-// ============================================
-// MOBILE TOUCH SUPPORT
-// ============================================
-document.addEventListener('touchstart', function() {
-    // Touch support for mobile devices
+/* ============================================
+   PAGE LOAD ANIMATION
+   ============================================ */
+window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
 });
 
-// ============================================
-// KEYBOARD NAVIGATION
-// ============================================
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-    }
+/* ============================================
+   DARK MODE TOGGLE (Optional)
+   ============================================ */
+// Uncomment if you want to add dark mode functionality
+/*
+const darkModeToggle = document.createElement('button');
+darkModeToggle.innerHTML = '🌙';
+darkModeToggle.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+`;
+
+darkModeToggle.addEventListener('mouseover', () => {
+    darkModeToggle.style.transform = 'scale(1.1)';
 });
+
+darkModeToggle.addEventListener('mouseout', () => {
+    darkModeToggle.style.transform = 'scale(1)';
+});
+
+document.body.appendChild(darkModeToggle);
+*/
