@@ -1,130 +1,110 @@
-// Cursor tracking effect
-const cursor = document.querySelector('.cursor');
-const cursorRing = document.querySelector('.cursor-ring');
+// Custom Cursor JavaScript Interactivity
+
+// Get the click sound audio element
 const clickSound = document.getElementById('clickSound');
 
+// Function to play click sound
+function playClickSound() {
+    if (clickSound) {
+        clickSound.currentTime = 0; // Reset sound to start
+        clickSound.play().catch(error => console.error('Sound playback error:', error));
+    }
+}
+
+// Cursor tracking
+const cursor = document.createElement('div');
+cursor.id = 'customCursor';
+document.body.appendChild(cursor);
+
 document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    
-cursorRing.style.left = (e.clientX - 20) + 'px';
-    cursorRing.style.top = (e.clientY - 20) + 'px';
+    cursor.style.left = `${e.pageX}px`;
+    cursor.style.top = `${e.pageY}px`;
 });
 
-// Hide default cursor and show custom cursor
-document.addEventListener('mouseover', () => {
-    document.body.style.cursor = 'none';
-});
-
-// Play sound on button clicks
-const buttons = document.querySelectorAll('.btn, .nav-link, .portfolio-card');
+// Custom cursor scaling on button hover
+const buttons = document.querySelectorAll('button, a');
 buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        clickSound.currentTime = 0;
-        clickSound.play().catch(() => {
-            console.log('Sound playback restricted');
-        });
+    button.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(1.5)';
     });
+    button.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+    });
+    button.addEventListener('click', playClickSound);
 });
 
-// Smooth scroll behavior
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// Smooth scroll behavior for anchor links
+const scrollLinks = document.querySelectorAll('a[href^="#"]');
+scrollLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
+// IntersectionObserver for fade-in animations
+const cards = document.querySelectorAll('.card');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('fade-in');
             observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
-
-document.querySelectorAll('.portfolio-card, .section-header').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(el);
 });
 
-// Resume download button functionality
-const resumeBtn = document.getElementById('resumeBtn');
-if (resumeBtn) {
-    resumeBtn.addEventListener('click', () => {
-        const link = document.createElement('a');
-        link.href = '#';
-        link.download = 'Ketan_Kini_Resume.pdf';
-        alert('Resume download feature ready. Add your resume file to the repository.');
+cards.forEach(card => observer.observe(card));
+
+// Resume button click handler
+const resumeButton = document.getElementById('resumeButton');
+if (resumeButton) {
+    resumeButton.addEventListener('click', () => {
+        playClickSound();
+        // Additional resume logic here
     });
 }
 
-// Form submission
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+// Contact form submission validation
+const form = document.getElementById('contactForm');
+if (form) {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
-        clickSound.play().catch(() => console.log('Sound playback restricted'));
-        
-        const formData = new FormData(contactForm);
-        
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
+        const isValid = /* Your validation logic here */;
+        if (isValid) {
+            alert('Form submitted successfully!');
+            form.reset();
+        } else {
+            alert('Please fill out all required fields.');
+        }
     });
 }
 
-// Parallax effect for floating shapes
+// Parallax background effect
 window.addEventListener('scroll', () => {
-    const shapes = document.querySelectorAll('.shape');
     const scrollY = window.scrollY;
-    
-    shapes.forEach((shape, index) => {
-        shape.style.transform = `translateY(${scrollY * (0.5 + index * 0.1)}px)`;
-    });
+    cursor.style.backgroundPositionY = `${scrollY * 0.5}px`;
 });
 
-// Cursor effect enhancement
+// Cursor scaling effects on mousedown and mouseup
 document.addEventListener('mousedown', () => {
-    cursor.style.transform = 'scale(0.7)';
-    cursorRing.style.transform = 'scale(1.5)';
+    cursor.style.transform = 'scale(0.8)';
 });
-
 document.addEventListener('mouseup', () => {
     cursor.style.transform = 'scale(1)';
-    cursorRing.style.transform = 'scale(1)';
 });
 
-// Touch support for mobile devices
-if (window.innerWidth <= 768) {
-    document.body.style.cursor = 'auto';
+// Mobile/tablet detection
+if (window.innerWidth < 768) {
     cursor.style.display = 'none';
-    cursorRing.style.display = 'none';
+} else {
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 768) {
+            cursor.style.display = 'none';
+        } else {
+            cursor.style.display = 'block';
+        }
+    });
 }
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
-    }
-});
-
-console.log('Portfolio website loaded successfully!');
+console.log('Custom cursor script loaded');
