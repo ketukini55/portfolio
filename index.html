@@ -3,44 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <a href="#hero" onclick="scrollToTop()">My Portfolio</a>
-    </nav>
-    <section id="hero">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Check out my work!</p>
-    </section>
-    <section id="ui-ux">
-        <h2>UI/UX Design</h2>
-        <p>Details about UI/UX design projects.</p>
-    </section>
-    <section id="graphic-design">
-        <h2>Graphic Design</h2>
-        <p>Details about graphic design projects.</p>
-    </section>
-    <section id="html-css">
-        <h2>HTML/CSS</h2>
-        <p>Details about HTML/CSS projects.</p>
-    </section>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Get in touch!</p>
-    </section>
-    <footer>
-        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
-    </footer>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#uiux">UI/UX Design</a></li>
+                <li><a href="#graphic">Graphic Design</a></li>
+                <li><a href="#webdev">Web Development</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button onclick="scrollToTop()">Logo</button>
+    </header>
+    <main>
+        <section id="about">
+            <h1>About Me</h1>
+            <p>Welcome to my portfolio!</p>
+        </section>
+        <section id="uiux">
+            <h2>UI/UX Design</h2>
+            <p>Expanded content for UI/UX Design.</p>
+        </section>
+        <section id="graphic">
+            <h2>Graphic Design</h2>
+            <p>Expanded content for Graphic Design.</p>
+        </section>
+        <section id="webdev">
+            <h2>Web Development</h2>
+            <p>Expanded content for Web Development.</p>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <p>List of skills.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Contact information here.</p>
+        </section>
+    </main>
     <script>
-        function playClickSound() {
-            var audio = new Audio('click-sound.mp3'); // Add your sound file path
-            audio.play();
-        }
-
         function scrollToTop() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-            playClickSound();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            var audio = new Audio('click-sound.mp3');
+            audio.play();
         }
     </script>
 </body>
