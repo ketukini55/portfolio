@@ -4,30 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <style>
-        /* Your existing CSS */
-        .scroll-to-top {
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <nav>
-        <span class="scroll-to-top" onclick="scrollToTop()">Ketan Kini</span>
+        <a href="#hero" onclick="scrollToTop()">My Portfolio</a>
     </nav>
+    <section id="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Check out my work!</p>
+    </section>
+    <section id="ui-ux">
+        <h2>UI/UX Design</h2>
+        <p>Details about UI/UX design projects.</p>
+    </section>
+    <section id="graphic-design">
+        <h2>Graphic Design</h2>
+        <p>Details about graphic design projects.</p>
+    </section>
+    <section id="html-css">
+        <h2>HTML/CSS</h2>
+        <p>Details about HTML/CSS projects.</p>
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Get in touch!</p>
+    </section>
+    <footer>
+        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+    </footer>
     <script>
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            playClickSound();
+        function playClickSound() {
+            var audio = new Audio('click-sound.mp3'); // Add your sound file path
+            audio.play();
         }
 
-        function playClickSound() {
-            // Code to play the click sound
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            playClickSound();
         }
     </script>
-    <!-- Your existing HTML content -->
 </body>
 </html>
