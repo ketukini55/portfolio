@@ -4,11 +4,13 @@ const cursorRing = document.querySelector('.cursor-ring');
 const clickSound = document.getElementById('clickSound');
 
 document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX - 6 + 'px';
-    cursor.style.top = e.clientY - 6 + 'px';
-    
-    cursorRing.style.left = (e.clientX - 18) + 'px';
-    cursorRing.style.top = (e.clientY - 18) + 'px';
+    if (cursor && cursorRing) {
+        cursor.style.left = (e.clientX - 6) + 'px';
+        cursor.style.top = (e.clientY - 6) + 'px';
+        
+        cursorRing.style.left = (e.clientX - 18) + 'px';
+        cursorRing.style.top = (e.clientY - 18) + 'px';
+    }
 });
 
 // Hide default cursor and show custom cursor
@@ -17,7 +19,7 @@ document.addEventListener('mouseover', () => {
 });
 
 // Play sound on button clicks and interactions
-const buttons = document.querySelectorAll('.btn, .nav-link, .portfolio-card, .skill-item, .social-link');
+const buttons = document.querySelectorAll('.btn, .nav-link, .portfolio-card, .skill-item, .social-link, .info-item a');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         playClickSound();
@@ -25,21 +27,36 @@ buttons.forEach(button => {
     
     // Add hover effect
     button.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'scale(1.5)';
-        cursorRing.style.transform = 'scale(1.2)';
+        if (cursor && cursorRing) {
+            cursor.style.transform = 'scale(1.5)';
+            cursorRing.style.transform = 'scale(1.2)';
+        }
     });
     
     button.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'scale(1)';
-        cursorRing.style.transform = 'scale(1)';
+        if (cursor && cursorRing) {
+            cursor.style.transform = 'scale(1)';
+            cursorRing.style.transform = 'scale(1)';
+        }
     });
 });
 
 function playClickSound() {
-    clickSound.currentTime = 0;
-    clickSound.play().catch(() => {
-        console.log('Sound playback restricted');
+    if (clickSound) {
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => {
+            console.log('Sound playback restricted');
+        });
+    }
+}
+
+// Scroll to top function (for logo click)
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
+    playClickSound();
 }
 
 // Smooth scroll behavior
@@ -48,6 +65,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
+            playClickSound();
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
@@ -86,7 +104,6 @@ if (resumeBtn) {
     resumeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         playClickSound();
-        
         alert('🎉 Resume download ready! Please add your resume.pdf file to your repository to enable downloads.');
     });
 }
@@ -106,55 +123,55 @@ if (contactForm) {
             alert(`✨ Thank you ${name}! Your message has been received. I'll get back to you soon at ${email}!`);
             contactForm.reset();
         } else {
-            alert('Please fill out all fields!');
+            alert('Please fill in all fields!');
         }
     });
 }
 
-// Parallax effect for background
+// Parallax effect for floating shapes
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    const navbar = document.querySelector('.navbar');
-    const blobs = document.querySelectorAll('.blob');
+    const floatingCards = document.querySelectorAll('.floating-card');
     
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 10px 40px rgba(255, 165, 0, 0.15)';
-    } else {
-        navbar.style.boxShadow = '0 8px 32px rgba(255, 165, 0, 0.1)';
-    }
-    
-    blobs.forEach((blob, index) => {
-        blob.style.transform = `translateY(${scrollY * (0.3 + index * 0.1)}px)`;
+    floatingCards.forEach((card, index) => {
+        card.style.transform = `translateY(${scrollY * (0.5 + index * 0.1)}px)`;
     });
 });
 
 // Cursor effect enhancement
 document.addEventListener('mousedown', () => {
-    cursor.style.transform = 'scale(0.5)';
-    cursorRing.style.transform = 'scale(1.8)';
-});
-
-document.addEventListener('mouseup', () => {
-    cursor.style.transform = 'scale(1)';
-    cursorRing.style.transform = 'scale(1)';
-});
-
-// Touch support for mobile devices
-if (window.innerWidth <= 768) {
-    document.body.style.cursor = 'auto';
-    cursor.style.display = 'none';
-    cursorRing.style.display = 'none';
-}
-
-// Window resize handler
-window.addEventListener('resize', () => {
-    if (window.innerWidth <= 768) {
-        cursor.style.display = 'none';
-        cursorRing.style.display = 'none';
-    } else {
-        cursor.style.display = 'block';
-        cursorRing.style.display = 'block';
+    if (cursor && cursorRing) {
+        cursor.style.transform = 'scale(0.7)';
+        cursorRing.style.transform = 'scale(1.5)';
     }
 });
 
-console.log('✨ Portfolio loaded successfully!');
+document.addEventListener('mouseup', () => {
+    if (cursor && cursorRing) {
+        cursor.style.transform = 'scale(1)';
+        cursorRing.style.transform = 'scale(1)';
+    }
+});
+
+// Touch support for mobile devices
+document.addEventListener('touchstart', () => {
+    if (cursor && cursorRing) {
+        cursor.style.opacity = '0';
+        cursorRing.style.opacity = '0';
+    }
+});
+
+document.addEventListener('touchend', () => {
+    if (cursor && cursorRing) {
+        cursor.style.opacity = '0.9';
+        cursorRing.style.opacity = '0.6';
+    }
+});
+
+// Logo click to scroll to top
+const logo = document.querySelector('.logo');
+if (logo) {
+    logo.addEventListener('click', scrollToTop);
+}
+
+console.log('✨ Ketan Kini Portfolio Loaded! ✨');
