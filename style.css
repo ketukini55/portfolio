@@ -1,0 +1,342 @@
+/* =============================================
+   style.css — Portfolio Website Styles
+   Save this file in the SAME FOLDER as index.html
+============================================= */
+
+
+/* =============================================
+   1. CSS VARIABLES
+   Change colours here to restyle the whole site!
+============================================= */
+:root {
+  --black:  #0d0d0d;   /* Page background */
+  --gold:   #e0a631;   /* Accent / highlight colour */
+  --white:  #ffffff;   /* Main text colour */
+  --grey:   #888888;   /* Secondary text colour */
+  --bar-bg: #2a2a2a;   /* Skill bar background track */
+}
+
+
+/* =============================================
+   2. RESET & BASE STYLES
+   Clears browser default spacing and sets font
+============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scroll when clicking nav links */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+a {
+  text-decoration: none; /* Removes underline from all links */
+  color: inherit;
+}
+
+
+/* =============================================
+   3. NAVIGATION BAR
+============================================= */
+nav {
+  display: flex;                  /* Places logo & links side by side */
+  justify-content: space-between; /* Logo left, links right */
+  align-items: center;            /* Vertically centered */
+  padding: 20px 60px;
+  position: sticky;               /* Stays at top while scrolling */
+  top: 0;
+  background-color: var(--black);
+  z-index: 100;                   /* Sits above other content */
+}
+
+/* Brand / Logo text */
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+/* The <ul> list of nav links */
+.nav-links {
+  list-style: none;   /* Removes bullet points */
+  display: flex;      /* Places links in a row */
+  gap: 30px;          /* Space between each link */
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  color: var(--grey);
+  transition: color 0.3s; /* Smooth colour change on hover */
+}
+
+/* Active link and hover state */
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 3px;
+}
+
+
+/* =============================================
+   4. HERO SECTION  (#home)
+============================================= */
+#home {
+  display: flex;                  /* Photo and text side by side */
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 60px 0;
+  min-height: 90vh;               /* Takes up most of the screen height */
+}
+
+/* ---- Left side: text ---- */
+.hero-text {
+  max-width: 400px;
+}
+
+.hero-text .hello {
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero-text h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* The name turns gold */
+.hero-text h1 span {
+  color: var(--gold);
+}
+
+.hero-text .subtitle {
+  font-size: 1rem;
+  color: var(--grey);
+  margin: 16px 0 30px;
+}
+
+/* Button row */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* ---- Right side: photo ---- */
+.hero-image img {
+  width: 340px;
+  border-radius: 10px;
+  display: block;
+}
+
+
+/* =============================================
+   5. BUTTONS  (reused across sections)
+============================================= */
+
+/* Filled gold button */
+.btn-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 2px solid var(--gold);
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.btn-gold:hover {
+  opacity: 0.85;
+}
+
+/* Outline (ghost) button */
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--white);
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 2px solid var(--white);
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+
+/* =============================================
+   6. ABOUT SECTION  (#about)
+============================================= */
+#about {
+  display: flex;      /* Photo left, text right */
+  align-items: center;
+  gap: 60px;
+  padding: 100px 60px;
+}
+
+/* Left: profile photo */
+.about-image img {
+  width: 260px;
+  border-radius: 10px;
+}
+
+/* Right: text block */
+.about-content {
+  max-width: 560px;
+}
+
+/* Section heading with watermark effect */
+.section-watermark {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* Big faded word behind the heading */
+.section-watermark .watermark {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 4rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.05); /* Very faint */
+  pointer-events: none;
+  user-select: none;
+}
+
+.section-watermark h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1; /* Sits on top of watermark */
+}
+
+.about-desc {
+  color: var(--grey);
+  font-size: 0.9rem;
+  margin: 14px 0 24px;
+  line-height: 1.7;
+}
+
+/* Info grid: 2 columns */
+.about-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 40px;
+  margin-bottom: 24px;
+}
+
+.info-row {
+  font-size: 0.85rem;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--white);
+  margin-right: 8px;
+}
+
+.info-value {
+  color: var(--grey);
+}
+
+/* "73 Projects complete" line */
+.project-count {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.project-count strong {
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+
+
+/* =============================================
+   7. SKILLS SECTION  (#skills)
+============================================= */
+#skills {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+/* Heading block */
+#skills .section-header {
+  margin-bottom: 50px;
+}
+
+#skills .section-header .section-watermark {
+  display: inline-block;
+}
+
+#skills .section-header p {
+  color: var(--grey);
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+/* Two-column grid for skill bars */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 equal columns */
+  gap: 20px 60px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Label row: skill name left, % right */
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Grey background track */
+.skill-bar {
+  background: var(--bar-bg);
+  border-radius: 4px;
+  height: 6px;
+  overflow: hidden;
+}
+
+/* Gold filled progress */
+.skill-bar .fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 4px;
+  /* width is set inline in HTML, e.g. style="width: 90%;" */
+}
+
+
+/* =============================================
+   8. FOOTER
+============================================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--grey);
+  font-size: 0.8rem;
+  border-top: 1px solid #1e1e1e;
+}
