@@ -1,108 +1,77 @@
-/* =============================================
-   style.css — Portfolio Website Styles
-   Save this file in the SAME FOLDER as index.html
-============================================= */
-
-
-/* =============================================
-   1. CSS VARIABLES
-   Change colours here to restyle the whole site!
-============================================= */
 :root {
-  --black:  #0d0d0d;   /* Page background */
-  --gold:   #e0a631;   /* Accent / highlight colour */
-  --white:  #ffffff;   /* Main text colour */
-  --grey:   #888888;   /* Secondary text colour */
-  --bar-bg: #2a2a2a;   /* Skill bar background track */
+  --black:  #0d0d0d;   
+  --gold:   #e0a631;   
+  --white:  #ffffff;   
+  --grey:   #888888;   
+  --bar-bg: #2a2a2a;   
 }
-
-
-/* =============================================
-   2. RESET & BASE STYLES
-   Clears browser default spacing and sets font
-============================================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
-  scroll-behavior: smooth; /* Smooth scroll when clicking nav links */
+  scroll-behavior: smooth; 
 }
-
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--black);
   color: var(--white);
+  overflow-x: hidden;
 }
-
 a {
-  text-decoration: none; /* Removes underline from all links */
+  text-decoration: none; 
   color: inherit;
 }
-
-
-/* =============================================
-   3. NAVIGATION BAR
-============================================= */
 nav {
-  display: flex;                  /* Places logo & links side by side */
-  justify-content: space-between; /* Logo left, links right */
-  align-items: center;            /* Vertically centered */
-  padding: 20px 60px;
-  position: sticky;               /* Stays at top while scrolling */
+  display: flex;                  
+  justify-content: space-between; 
+  align-items: center;            
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 16px 36px;
+  position: sticky;               
   top: 0;
   background-color: var(--black);
-  z-index: 100;                   /* Sits above other content */
+  z-index: 100;                   
 }
-
-/* Brand / Logo text */
 .logo {
   font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: 2px;
   color: var(--white);
 }
-
-/* The <ul> list of nav links */
 .nav-links {
-  list-style: none;   /* Removes bullet points */
-  display: flex;      /* Places links in a row */
-  gap: 30px;          /* Space between each link */
+  list-style: none;   
+  display: flex;      
+  gap: 24px;          
 }
-
 .nav-links a {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--grey);
-  transition: color 0.3s; /* Smooth colour change on hover */
+  transition: color 0.3s; 
 }
-
-/* Active link and hover state */
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--gold);
   border-bottom: 2px solid var(--gold);
   padding-bottom: 3px;
 }
-
-
-/* =============================================
-   4. HERO SECTION  (#home)
-============================================= */
 #home {
-  display: flex;                  /* Photo and text side by side */
-  align-items: center;
+  display: flex;                  
+  align-items: flex-end;
   justify-content: space-between;
-  padding: 60px 60px 0;
-  min-height: 90vh;               /* Takes up most of the screen height */
+  gap: 18px;
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 30px 36px 0;
+  min-height: 84vh;               
 }
-
-/* ---- Left side: text ---- */
 .hero-text {
-  max-width: 400px;
+  max-width: 410px;
+  padding-left: 6px;
+  padding-bottom: 84px;
 }
-
 .hero-text .hello {
   color: var(--gold);
   font-size: 0.85rem;
@@ -111,48 +80,42 @@ nav {
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-
 .hero-text h1 {
-  font-size: 3.2rem;
+  font-size: 4.1rem;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.03;
 }
-
-/* The name turns gold */
 .hero-text h1 span {
   color: var(--gold);
 }
-
 .hero-text .subtitle {
-  font-size: 1rem;
-  color: var(--grey);
-  margin: 16px 0 30px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 16px 0 28px;
 }
-
-/* Button row */
 .hero-buttons {
   display: flex;
   gap: 15px;
 }
-
-/* ---- Right side: photo ---- */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 .hero-image img {
-  width: 340px;
-  border-radius: 10px;
+  width: min(55vw, 520px);
+  max-height: 79vh;
+  object-fit: contain;
+  border-radius: 0;
   display: block;
 }
-
-
-/* =============================================
-   5. BUTTONS  (reused across sections)
-============================================= */
-
-/* Filled gold button */
 .btn-gold {
   display: inline-block;
   background: var(--gold);
   color: var(--black);
-  padding: 10px 24px;
+  padding: 10px 26px;
   border-radius: 25px;
   font-weight: 600;
   font-size: 0.85rem;
@@ -163,13 +126,11 @@ nav {
 .btn-gold:hover {
   opacity: 0.85;
 }
-
-/* Outline (ghost) button */
 .btn-outline {
   display: inline-block;
   background: transparent;
   color: var(--white);
-  padding: 10px 24px;
+  padding: 10px 26px;
   border-radius: 25px;
   font-weight: 600;
   font-size: 0.85rem;
@@ -181,162 +142,211 @@ nav {
   border-color: var(--gold);
   color: var(--gold);
 }
-
-
-/* =============================================
-   6. ABOUT SECTION  (#about)
-============================================= */
 #about {
-  display: flex;      /* Photo left, text right */
-  align-items: center;
-  gap: 60px;
-  padding: 100px 60px;
+  display: flex;      
+  align-items: flex-end;
+  gap: 42px;
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 72px 36px 84px;
 }
-
-/* Left: profile photo */
+.about-image {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+}
 .about-image img {
-  width: 260px;
-  border-radius: 10px;
+  width: min(36vw, 300px);
+  max-height: 55vh;
+  object-fit: contain;
+  border-radius: 0;
 }
-
-/* Right: text block */
 .about-content {
-  max-width: 560px;
+  max-width: 580px;
 }
-
-/* Section heading with watermark effect */
 .section-watermark {
   position: relative;
   margin-bottom: 10px;
 }
-
-/* Big faded word behind the heading */
 .section-watermark .watermark {
   position: absolute;
-  top: -20px;
+  top: -26px;
   left: 0;
-  font-size: 4rem;
+  font-size: 5.2rem;
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.05); /* Very faint */
+  color: rgba(255, 255, 255, 0.05); 
   pointer-events: none;
   user-select: none;
 }
-
 .section-watermark h2 {
-  font-size: 2rem;
+  font-size: 3.3rem;
   font-weight: 700;
   position: relative;
-  z-index: 1; /* Sits on top of watermark */
+  z-index: 1; 
 }
-
 .about-desc {
   color: var(--grey);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   margin: 14px 0 24px;
-  line-height: 1.7;
+  line-height: 1.8;
 }
-
-/* Info grid: 2 columns */
 .about-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 40px;
+  grid-template-columns: 150px 1fr;
+  gap: 12px 28px;
   margin-bottom: 24px;
 }
-
 .info-row {
-  font-size: 0.85rem;
+  font-size: 1rem;
+  display: contents;
 }
-
 .info-label {
   font-weight: 600;
   color: var(--white);
-  margin-right: 8px;
+  margin-right: 0;
 }
-
 .info-value {
   color: var(--grey);
 }
-
-/* "73 Projects complete" line */
 .project-count {
-  font-size: 1rem;
+  font-size: 2rem;
   margin-bottom: 20px;
   color: var(--white);
 }
-
 .project-count strong {
   color: var(--gold);
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
-
-
-/* =============================================
-   7. SKILLS SECTION  (#skills)
-============================================= */
 #skills {
-  padding: 100px 60px;
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 72px 36px;
   text-align: center;
 }
-
-/* Heading block */
 #skills .section-header {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
-
 #skills .section-header .section-watermark {
   display: inline-block;
 }
-
 #skills .section-header p {
   color: var(--grey);
-  font-size: 0.85rem;
+  font-size: 1rem;
   margin-top: 10px;
 }
-
-/* Two-column grid for skill bars */
 .skills-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 equal columns */
-  gap: 20px 60px;
-  max-width: 800px;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px 34px;
+  max-width: 1140px;
   margin: 0 auto;
   text-align: left;
 }
-
-/* Label row: skill name left, % right */
 .skill-label {
   display: flex;
   justify-content: space-between;
-  font-size: 0.9rem;
+  font-size: 1.55rem;
   font-weight: 600;
   margin-bottom: 8px;
 }
-
-/* Grey background track */
 .skill-bar {
   background: var(--bar-bg);
   border-radius: 4px;
-  height: 6px;
+  height: 9px;
   overflow: hidden;
 }
-
-/* Gold filled progress */
 .skill-bar .fill {
   height: 100%;
   background: var(--gold);
   border-radius: 4px;
-  /* width is set inline in HTML, e.g. style="width: 90%;" */
 }
-
-
-/* =============================================
-   8. FOOTER
-============================================= */
 footer {
   text-align: center;
   padding: 30px;
   color: var(--grey);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   border-top: 1px solid #1e1e1e;
 }
+@media (max-width: 1024px) {
+  nav,
+  #home {
+    padding: 32px 22px 0;
+  }
+  #about,
+  #skills {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  .hero-text h1 {
+    font-size: 3.2rem;
+  }
+  .hero-text .subtitle {
+    font-size: 1.75rem;
+  }
+  .section-watermark h2 {
+    font-size: 2.6rem;
+  }
+  .skill-label {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+  #home,
+  #about {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 18px;
+  }
+  .hero-image,
+  .about-image {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-image img,
+  .about-image img {
+    width: min(100%, 355px);
+  }
+  .hero-text h1 {
+    font-size: 2.6rem;
+  }
+  .hero-text .subtitle {
+    font-size: 1.4rem;
+  }
+  .section-watermark .watermark {
+    font-size: 4rem;
+  }
+  .section-watermark h2 {
+    font-size: 2.1rem;
+  }
+  .about-info {
+    grid-template-columns: 130px 1fr;
+    gap: 10px 16px;
+  }
+  .project-count,
+  .project-count strong {
+    font-size: 1.5rem;
+  }
+  #skills {
+    padding: 68px 18px;
+  }
+  #skills .section-header p {
+    font-size: 1rem;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .skill-label {
+    font-size: 1.1rem;
+  }
+}
+
