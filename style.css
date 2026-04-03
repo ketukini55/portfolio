@@ -412,3 +412,132 @@ footer {
         font-size: 1.1rem;
     }
 }
+
+#projects {
+    width: min(1240px, 100%);
+    margin: 0 auto;
+    padding: 72px 36px;
+    text-align: center;
+}
+
+#projects .section-header {
+    margin-bottom: 50px;
+}
+
+#projects .section-header .section-watermark {
+    display: inline-block;
+}
+
+#projects .section-header p {
+    color: var(--grey);
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(224, 166, 49, 0.2);
+}
+
+.project-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: 24px;
+}
+
+.project-content h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+}
+
+.project-content p {
+    color: var(--grey);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.tag {
+    background: var(--bar-bg);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.project-links {
+    display: flex;
+    gap: 12px;
+}
+
+.project-link {
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.project-link:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    #projects {
+        padding: 68px 18px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    .project-content h3 {
+        font-size: 1.2rem;
+    }
+}
