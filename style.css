@@ -450,6 +450,13 @@ footer {
     text-align: left;
 }
 
+.project-card--link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(224, 166, 49, 0.2);
