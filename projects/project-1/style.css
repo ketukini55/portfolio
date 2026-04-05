@@ -9,66 +9,28 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Navbar Styling */
 #navbar {
     width: 80vw;
     background-color: #ffffff;
-    margin: 0 auto;        /* remove top margin to sit at viewport top */
+    margin: 0 auto;
     border-radius: 50px;
     padding: 15px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute;    /* position over hero */
-    top: 20px;             /* offset down a bit */
+    position: absolute;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 200;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-#herosection {
-    height: 70vh;
-    width: 100%;
-    background-image: url(img/hero.avif);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    margin-top: 0;
-    display: flex;
-    align-items: flex-end; 
-    justify-content: space-between; 
-    position: relative;
-    padding-top:   220px; 
-    padding-bottom: 20px; 
-}
-
-#lines {
-    padding-left: 100px;
-    display: flex;
-    color: #ffffff;
-    flex: 1;
-    align-items: flex-end;
-    margin-bottom: 80px;
-}
-
-#leftline {
-    padding-right: 100px;
-    font-size: 0.9em;
-    color: #ffffff;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* push h2/button down */
-    align-items: flex-end; /* align contents to right */
-    text-align: right; /* ensure text flows right-aligned */
-    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #logo {
     font-size: 1.4em;
     font-weight: 600;
     color: #333;
+    white-space: nowrap;
 }
 
 #center {
@@ -82,6 +44,7 @@ body {
     color: #666;
     cursor: pointer;
     transition: color 0.3s;
+    white-space: nowrap;
 }
 
 .text:hover {
@@ -97,24 +60,45 @@ body {
     cursor: pointer;
     font-weight: 500;
     transition: background-color 0.3s;
+    white-space: nowrap;
 }
 
 #right button:hover {
     background-color: #c9a087;
 }
 
-/* Hero Section */
+#menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+}
+
+#menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
 #herosection {
     height: 70vh;
+    min-height: 420px;
     width: 100%;
     background-image: url(img/hero.avif);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    margin-top: 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
+    padding-top: 80px;
 }
 
 #lines {
@@ -122,6 +106,7 @@ body {
     display: flex;
     color: #ffffff;
     flex: 1;
+    align-items: center;
 }
 
 #lines h1 {
@@ -139,6 +124,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-end;
+    text-align: right;
 }
 
 #leftline h2 {
@@ -165,11 +152,8 @@ body {
     background-color: #c9a087;
 }
 
-/* Bottom Section */
 #bottom {
     margin: 50px 100px;
-    background-color: transparent;
-    padding: 0;
 }
 
 .bottom-content {
@@ -180,10 +164,9 @@ body {
 
 .bottom-left-box {
     flex: none;
-    width: calc(30%);
+    width: 30%;
     background-color: #c9a87d;
-    padding: 10px;
-    margin-left: 60px;
+    padding: 25px;
     border-radius: 15px;
     color: #ffffff;
     display: flex;
@@ -193,30 +176,28 @@ body {
 .box-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-bottom: 30px;
+    gap: 10px;
 }
 
 .box-title h2 {
     font-size: 1.3em;
     font-weight: 600;
     line-height: 1.4;
-    max-width: 200px;
 }
 
 .logo-wrapper {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
-    padding-bottom: 0;
+    flex-shrink: 0;
 }
 
 .logo-wrapper img {
     height: 70px;
     width: auto;
     object-fit: contain;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .box-footer {
@@ -226,18 +207,25 @@ body {
     align-items: flex-end;
 }
 
-.stats-wrapper {
-    display: flex;
-    gap: 40px;
+.stat {
     flex: 1;
 }
 
+.stat h1 {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat h3 {
+    font-size: 0.85em;
+    font-weight: 400;
+}
+
 .bottom-right {
-    flex: none;
-    width: calc(50% - 25px);
+    flex: 1;
     background-color: rgb(255, 245, 231);
     padding: 40px;
-    margin-left: 60px;
     border-radius: 15px;
     color: #171717;
 }
@@ -252,6 +240,7 @@ body {
     display: flex;
     gap: 20px;
     align-items: center;
+    height: 100%;
 }
 
 .who-text {
@@ -273,34 +262,198 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 350px; /* increased from 260px for larger image */
+    max-height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 .who-image img {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
+@media (max-width: 1024px) {
+    #navbar {
+        width: 90vw;
+        padding: 12px 20px;
+    }
 
-.stat {
-    flex: 1;
+    #center {
+        gap: 18px;
+    }
+
+    #lines {
+        padding-left: 50px;
+    }
+
+    #lines h1 {
+        font-size: 2.2em;
+    }
+
+    #leftline {
+        padding-right: 50px;
+    }
+
+    #leftline h2 {
+        font-size: 0.95em;
+    }
+
+    #bottom {
+        margin: 40px 40px;
+    }
+
+    .bottom-left-box {
+        width: 35%;
+    }
 }
 
-.stat:last-child {
-    flex: 0.6;
+@media (max-width: 768px) {
+    #navbar {
+        width: 92vw;
+        border-radius: 30px;
+        padding: 12px 20px;
+        flex-wrap: wrap;
+        position: fixed;
+        top: 12px;
+    }
+
+    #center,
+    #right {
+        display: none;
+    }
+
+    #menu-toggle {
+        display: flex;
+    }
+
+    #navbar.open #center {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+        padding: 16px 0 8px;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
+    }
+
+    #navbar.open #right {
+        display: flex;
+        width: 100%;
+        padding-bottom: 6px;
+    }
+
+    #navbar.open #right button {
+        width: 100%;
+    }
+
+    #herosection {
+        height: auto;
+        min-height: 70vh;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: 100px 30px 40px;
+    }
+
+    #lines {
+        padding-left: 0;
+        margin-bottom: 20px;
+    }
+
+    #lines h1 {
+        font-size: 2em;
+        max-width: 100%;
+    }
+
+    #leftline {
+        padding-right: 0;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    #leftline h2 {
+        max-width: 100%;
+    }
+
+    #bottom {
+        margin: 30px 20px;
+    }
+
+    .bottom-content {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .bottom-left-box {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .bottom-right {
+        width: 100%;
+        margin-left: 0;
+        padding: 28px;
+    }
+
+    .who-wrapper {
+        flex-direction: column;
+    }
+
+    .who-image {
+        width: 100%;
+        max-height: 220px;
+    }
 }
 
-.stat h1,
-.stat h2 {
-    font-size: 1.8em;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
+@media (max-width: 480px) {
+    #navbar {
+        width: 94vw;
+        top: 8px;
+        padding: 10px 16px;
+    }
 
-.stat h3 {
-    font-size: 0.85em;
-    font-weight: 400;
-}
+    #logo {
+        font-size: 1.2em;
+    }
 
+    #herosection {
+        padding: 90px 20px 32px;
+        min-height: 75vh;
+    }
+
+    #lines h1 {
+        font-size: 1.65em;
+    }
+
+    #leftline h2 {
+        font-size: 0.88em;
+    }
+
+    .button2 {
+        padding: 10px 20px;
+        font-size: 0.82em;
+    }
+
+    #bottom {
+        margin: 24px 14px;
+    }
+
+    .bottom-right {
+        padding: 22px;
+    }
+
+    .box-footer {
+        gap: 16px;
+    }
+
+    .stat h1 {
+        font-size: 1.5em;
+    }
+
+    .logo-wrapper img {
+        height: 55px;
+    }
+}
