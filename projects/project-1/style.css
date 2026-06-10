@@ -5,23 +5,13 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-:root {
-    --ink: #0b0c12;
-    --paper: #f4f1eb;
-    --card: #ffffff;
-    --muted: #606370;
-    --line: #d8d2c8;
-    --accent-primary: #8f6dff;
-    --accent-secondary: #d3eb27;
-}
-
 body {
-    background-color: var(--paper);
+    background-color: #f5f5f5;
 }
 
 #navbar {
     width: 80vw;
-    background-color: var(--card);
+    background-color: #ffffff;
     margin: 0 auto;
     border-radius: 50px;
     padding: 15px 30px;
@@ -33,14 +23,13 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 200;
-    border: 1px solid var(--line);
-    box-shadow: 0 4px 10px rgba(11, 12, 18, 0.08);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #logo {
     font-size: 1.4em;
     font-weight: 600;
-    color: var(--ink);
+    color: #333;
     white-space: nowrap;
 }
 
@@ -52,18 +41,18 @@ body {
 
 .text {
     font-size: 0.75em;
-    color: var(--muted);
+    color: #666;
     cursor: pointer;
     transition: color 0.3s;
     white-space: nowrap;
 }
 
 .text:hover {
-    color: var(--accent-primary);
+    color: #b8956a;
 }
 
 #right button {
-    background-color: var(--accent-secondary);
+    background-color: #dab99f;
     border: none;
     border-radius: 25px;
     font-size: 0.85em;
@@ -75,7 +64,7 @@ body {
 }
 
 #right button:hover {
-    background-color: #c4dd1a;
+    background-color: #c9a087;
 }
 
 #menu-toggle {
@@ -92,7 +81,7 @@ body {
     display: block;
     width: 24px;
     height: 2px;
-    background-color: var(--ink);
+    background-color: #333;
     border-radius: 2px;
     transition: all 0.3s;
 }
@@ -148,7 +137,7 @@ body {
 }
 
 .button2 {
-    background-color: var(--accent-secondary);
+    background-color: #dab99f;
     border: none;
     border-radius: 25px;
     padding: 12px 25px;
@@ -160,7 +149,7 @@ body {
 }
 
 .button2:hover {
-    background-color: #c4dd1a;
+    background-color: #c9a087;
 }
 
 #bottom {
@@ -176,7 +165,7 @@ body {
 .bottom-left-box {
     flex: none;
     width: 30%;
-    background-color: var(--accent-primary);
+    background-color: #c9a87d;
     padding: 25px;
     border-radius: 15px;
     color: #ffffff;
@@ -235,10 +224,10 @@ body {
 
 .bottom-right {
     flex: 1;
-    background-color: var(--card);
+    background-color: rgb(255, 245, 231);
     padding: 40px;
     border-radius: 15px;
-    color: var(--ink);
+    color: #171717;
 }
 
 .bottom-right h2 {
@@ -346,7 +335,7 @@ body {
         gap: 12px;
         width: 100%;
         padding: 16px 0 8px;
-        border-top: 1px solid var(--line);
+        border-top: 1px solid #eee;
         margin-top: 10px;
     }
 
