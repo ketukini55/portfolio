@@ -483,6 +483,14 @@ footer {
     transition: transform 0.3s ease;
 }
 
+.apple-watch-thumb {
+    object-position: center 70%;
+}
+
+.polyart-thumb {
+    object-position: center top;
+}
+
 .project-card:hover .project-image img {
     transform: scale(1.05);
 }
