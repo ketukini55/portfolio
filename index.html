@@ -39,7 +39,7 @@
     <section id="about">
         <div class="about-image">
             <img src="my_img.png" alt="Ketan kini">
-        </div>    
+        </div>
         <div class="about-content">
             <div class="section-watermark">
                 <span class="watermark">About</span>
@@ -105,7 +105,7 @@
                     </div>
                 </div>
             </a>
-            <div class="project-card">
+            <div class="project-card project-card--clickable" data-project-url="projects/project-2/index.html" tabindex="0" role="link" aria-label="Open Apple Watch Concept preview">
                 <div class="project-image">
                     <img src="projects/project-2/apple_watch.png" alt="Apple Watch landing page preview">
                 </div>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card project-card--clickable" data-project-url="projects/project-3/index.html" tabindex="0" role="link" aria-label="Open Luffy Poster Design preview">
                 <div class="project-image">
                     <img src="projects/project-3/luffy.png" alt="Luffy artwork preview">
                 </div>
@@ -308,6 +308,25 @@
                 window.open('https://mail.google.com/mail/?view=cm&fs=1&to=ketankini0708@gmail.com', '_blank');
             }
             // On mobile, let the default mailto: behavior work (opens Gmail app)
+        });
+
+        document.querySelectorAll('.project-card--clickable').forEach((card) => {
+            const openProject = () => window.open(card.dataset.projectUrl, '_blank', 'noopener');
+
+            card.addEventListener('click', (event) => {
+                if (event.target.closest('.project-links a')) {
+                    return;
+                }
+
+                openProject();
+            });
+
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openProject();
+                }
+            });
         });
     </script>
 </body>
