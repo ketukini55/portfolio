@@ -1,9 +1,13 @@
 :root {
-    --black: #0d0d0d;
-    --gold: #e0a631;
-    --white: #ffffff;
-    --grey: #888888;
-    --bar-bg: #2a2a2a;
+    --ink: #0b0c12;
+    --paper: #f4f1eb;
+    --card: #ffffff;
+    --muted: #606370;
+    --line: #d8d2c8;
+    --accent-primary: #8f6dff;
+    --accent-secondary: #d3eb27;
+    --accent-tertiary: #f39bc6;
+    --bar-bg: #ece6dc;
 }
 
 * {
@@ -18,8 +22,8 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--paper);
+    color: var(--ink);
     overflow-x: hidden;
 }
 
@@ -37,7 +41,7 @@ nav {
     padding: 16px 36px;
     position: sticky;
     top: 0;
-    background-color: var(--black);
+    background-color: var(--paper);
     z-index: 100;
 }
 
@@ -53,14 +57,14 @@ nav {
 
 .nav-links a {
     font-size: 0.8rem;
-    color: var(--grey);
+    color: var(--muted);
     transition: color 0.3s;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--gold);
-    border-bottom: 2px solid var(--gold);
+    color: var(--accent-primary);
+    border-bottom: 2px solid var(--accent-primary);
     padding-bottom: 3px;
 }
 
@@ -82,7 +86,7 @@ nav {
 }
 
 .hero-text .hello {
-    color: var(--gold);
+    color: var(--accent-primary);
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 2px;
@@ -97,13 +101,13 @@ nav {
 }
 
 .hero-text h1 span {
-    color: var(--gold);
+    color: var(--accent-primary);
 }
 
 .hero-text .subtitle {
     font-size: 2.2rem;
     font-weight: 600;
-    color: var(--white);
+    color: var(--ink);
     margin: 16px 0 28px;
 }
 
@@ -129,13 +133,13 @@ nav {
 
 .btn-gold {
     display: inline-block;
-    background: var(--gold);
-    color: var(--black);
+    background: var(--accent-secondary);
+    color: var(--ink);
     padding: 10px 26px;
     border-radius: 25px;
     font-weight: 600;
     font-size: 0.85rem;
-    border: 2px solid var(--gold);
+    border: 2px solid var(--accent-secondary);
     cursor: pointer;
     transition: opacity 0.3s;
 }
@@ -147,19 +151,20 @@ nav {
 .btn-outline {
     display: inline-block;
     background: transparent;
-    color: var(--white);
+    color: var(--ink);
     padding: 10px 26px;
     border-radius: 25px;
     font-weight: 600;
     font-size: 0.85rem;
-    border: 2px solid var(--white);
+    border: 2px solid var(--accent-primary);
     cursor: pointer;
     transition: border-color 0.3s, color 0.3s;
 }
 
 .btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    background: rgba(143, 109, 255, 0.08);
 }
 
 #about {
@@ -199,7 +204,7 @@ nav {
     left: 0;
     font-size: 5.2rem;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.05);
+    color: rgba(11, 12, 18, 0.07);
     pointer-events: none;
     user-select: none;
 }
@@ -212,7 +217,7 @@ nav {
 }
 
 .about-desc {
-    color: var(--grey);
+    color: var(--muted);
     font-size: 1.05rem;
     margin: 14px 0 24px;
     line-height: 1.8;
@@ -232,22 +237,22 @@ nav {
 
 .info-label {
     font-weight: 600;
-    color: var(--white);
+    color: var(--ink);
     margin-right: 0;
 }
 
 .info-value {
-    color: var(--grey);
+    color: var(--muted);
 }
 
 .project-count {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: var(--white);
+    color: var(--ink);
 }
 
 .project-count strong {
-    color: var(--gold);
+    color: var(--accent-primary);
     font-size: 2rem;
 }
 
@@ -267,7 +272,7 @@ nav {
 }
 
 #skills .section-header p {
-    color: var(--grey);
+    color: var(--muted);
     font-size: 1rem;
     margin-top: 10px;
 }
@@ -298,16 +303,16 @@ nav {
 
 .skill-bar .fill {
     height: 100%;
-    background: var(--gold);
+    background: var(--accent-secondary);
     border-radius: 4px;
 }
 
 footer {
     text-align: center;
     padding: 30px;
-    color: var(--grey);
+    color: var(--muted);
     font-size: 0.95rem;
-    border-top: 1px solid #1e1e1e;
+    border-top: 1px solid var(--line);
 }
 
 @media (max-width: 1024px) {
@@ -429,7 +434,7 @@ footer {
 }
 
 #projects .section-header p {
-    color: var(--grey);
+    color: var(--muted);
     font-size: 1rem;
     margin-top: 10px;
 }
@@ -443,7 +448,8 @@ footer {
 }
 
 .project-card {
-    background: #1a1a1a;
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -458,7 +464,7 @@ footer {
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(224, 166, 49, 0.2);
+    box-shadow: 0 8px 20px rgba(143, 109, 255, 0.2);
 }
 
 .project-image {
@@ -485,12 +491,12 @@ footer {
 .project-content h3 {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--ink);
     margin-bottom: 12px;
 }
 
 .project-content p {
-    color: var(--grey);
+    color: var(--muted);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 16px;
@@ -505,7 +511,7 @@ footer {
 
 .tag {
     background: var(--bar-bg);
-    color: var(--gold);
+    color: var(--accent-primary);
     padding: 4px 12px;
     border-radius: 4px;
     font-size: 0.75rem;
@@ -518,7 +524,7 @@ footer {
 }
 
 .project-link {
-    color: var(--gold);
+    color: var(--accent-primary);
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
@@ -564,7 +570,7 @@ footer {
 }
 
 #contact .section-header p {
-    color: var(--grey);
+    color: var(--muted);
     font-size: 1rem;
     margin-top: 10px;
 }
@@ -578,7 +584,8 @@ footer {
 }
 
 .contact-card {
-    background: #1a1a1a;
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 8px;
     padding: 40px 30px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
@@ -590,12 +597,12 @@ footer {
 
 .contact-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(224, 166, 49, 0.2);
-    background: #222222;
+    box-shadow: 0 8px 20px rgba(143, 109, 255, 0.2);
+    background: #faf8f3;
 }
 
 .contact-icon {
-    color: var(--gold);
+    color: var(--accent-primary);
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -604,12 +611,12 @@ footer {
 .contact-card h3 {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--ink);
     margin-bottom: 10px;
 }
 
 .contact-card p {
-    color: var(--grey);
+    color: var(--muted);
     font-size: 1rem;
     line-height: 1.6;
 }
