@@ -491,6 +491,10 @@ footer {
     object-position: center top;
 }
 
+.google-pixel-thumb {
+    object-position: center top;
+}
+
 .project-card:hover .project-image img {
     transform: scale(1.05);
 }
