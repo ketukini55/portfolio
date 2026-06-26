@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ketan Kini Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="ketan_kini_logo.svg" alt="Ketan Kini" height="50" /></div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="assets/Ketan_Kini_Resume.jpg" download="Ketan_Kini_Resume.jpg">Resume</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="hero-text">
+            <p class="hello">Hello!</p>
+            <h1>I'm <span>Ketan<br>Kini</span></h1>
+            <p class="subtitle">Frontend Web Developer</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn-gold">HIRE ME</a>
+                <a href="#projects" class="btn-outline">MY WORKS</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="my_img.png" alt="Ketan Kini">
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-image">
+            <img src="my_img.png" alt="Ketan kini">
+        </div>
+        <div class="about-content">
+            <div class="section-watermark">
+                <span class="watermark">About</span>
+                <h2>About Me</h2>
+            </div>
+            <p class="about-desc">
+                A small river named Duden flows by their place and supplies it
+                with the necessary regelialia.
+            </p>
+            <div class="about-info">
+                <div class="info-row">
+                    <span class="info-label">Name:</span>
+                    <span class="info-value">Ketan Kini</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Date of birth:</span>
+                    <span class="info-value">August 07, 1999</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Address:</span>
+                    <span class="info-value">At:Nagave, Post:Agarwadi, Dist:Palghar</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Zip code:</span>
+                    <span class="info-value">401102</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Email:</span>
+                    <span class="info-value">ketankini0708@gmail.com</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Phone:</span>
+                    <span class="info-value">+91 9529860298</span>
+                </div>
+            </div>
+            <p class="project-count">
+                <strong>73</strong> Project complete
+            </p>
+            <a href="assets/Ketan_Kini_Resume.jpg" download="Ketan_Kini_Resume.jpg" class="btn-gold">DOWNLOAD CV</a>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header">
+            <div class="section-watermark">
+                <span class="watermark">Projects</span>
+                <h2>My Projects</h2>
+            </div>
+            <p>Here are some of my recent projects that showcase my skills and expertise</p>
+        </div>
+        <div class="projects-grid">
+            <a href="projects/project-1/index.html" class="project-card project-card--link" target="_blank" rel="noopener">
+                <div class="project-image">
+                    <img src="projects/project-1/img/workspace.png" alt="HTML &amp; CSS Website Project">
+                </div>
+                <div class="project-content">
+                    <h3>HTML &amp; CSS Website Project</h3>
+                    <p>A responsive website built with pure HTML5 and CSS3, showcasing modern web design principles and clean code structure.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                </div>
+            </a>
+            <div class="project-card project-card--clickable" data-project-url="projects/project-2/index.html" tabindex="0" role="link" aria-label="Open Apple Watch Concept preview">
+                <div class="project-image">
+                    <img src="projects/project-2/apple_watch.png" alt="Apple Watch landing page preview" class="apple-watch-thumb">
+                </div>
+                <div class="project-content">
+                    <h3>Apple Watch Concept</h3>
+                    <p>A clean visual concept for an Apple Watch product page, designed to highlight the product with bold typography and premium styling.</p>
+                    <div class="project-tags">
+                        <span class="tag">UI Design</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/project-2/apple_watch.psd" download="apple_watch.psd" class="project-link">Download PSD</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card project-card--clickable" data-project-url="projects/project-5/index.html" tabindex="0" role="link" aria-label="Open Google Pixel 10 Concept preview">
+                <div class="project-image">
+                    <img src="projects/project-5/google_pixel.png" alt="Google Pixel 10 Concept preview" class="google-pixel-thumb">
+                </div>
+                <div class="project-content">
+                    <h3>Google Pixel 10 Concept</h3>
+                    <p>A premium landing page design for the Google Pixel 10, highlighting its AI capabilities, high-end camera features, and modern hardware aesthetics.</p>
+                    <div class="project-tags">
+                        <span class="tag">UI Design</span>
+                        <span class="tag">Photoshop</span>
+                        <span class="tag">Concept</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/project-5/google_pixel.psd" download="google_pixel.psd" class="project-link">Download PSD</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card project-card--clickable" data-project-url="projects/project-3/index.html" tabindex="0" role="link" aria-label="Open Luffy Poster Design preview">
+                <div class="project-image">
+                    <img src="projects/project-3/luffy.png" alt="Luffy artwork preview">
+                </div>
+                <div class="project-content">
+                    <h3>Luffy Poster Design</h3>
+                    <p>A poster-style character composition created in Photoshop, focused on contrast, mood, and a strong visual centerpiece.</p>
+                    <div class="project-tags">
+                        <span class="tag">Photoshop</span>
+                        <span class="tag">Poster</span>
+                        <span class="tag">Artwork</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/project-3/luffy.psd" download="luffy.psd" class="project-link">Download PSD</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card project-card--clickable" data-project-url="projects/project-4/index.html" tabindex="0" role="link" aria-label="Open Polyart Illustration preview">
+                <div class="project-image">
+                    <img src="projects/project-4/polyart.png" alt="Polyart Illustration preview" class="polyart-thumb">
+                </div>
+                <div class="project-content">
+                    <h3>Polyart Illustration</h3>
+                    <p>A detailed low-poly geometric artwork crafted in Adobe Illustrator, using color harmony and vector precision to create a vibrant design.</p>
+                    <div class="project-tags">
+                        <span class="tag">Illustrator</span>
+                        <span class="tag">Polyart</span>
+                        <span class="tag">Vector</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/project-4/polyart.ai" download="polyart.ai" class="project-link">Download AI</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card project-card--clickable" data-project-url="projects/project-6/index.html" tabindex="0" role="link" aria-label="Open Image Colorization project preview">
+                <div class="project-image image-colorize-container">
+                    <img src="projects/project-6/PhotoshopExtension_Image (8).png" alt="Original Black & White" class="image-bw">
+                    <img src="projects/project-6/colorize.png" alt="Colorized with Hue & Saturation" class="image-color">
+                </div>
+                <div class="project-content">
+                    <h3>Image Colorization</h3>
+                    <p>Artistic restoration of a vintage black & white photograph, utilizing Photoshop Hue and Saturation adjustments to recreate rich, natural colors.</p>
+                    <div class="project-tags">
+                        <span class="tag">Photoshop</span>
+                        <span class="tag">Colorization</span>
+                        <span class="tag">Hue &amp; Saturation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <div class="section-watermark">
+                <span class="watermark">Skills</span>
+                <h2>My Skills</h2>
+            </div>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>HTML5</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="fill" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>CSS3</span>
+                    <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="fill" style="width: 85%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>FIGMA</span>
+                    <span>95%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="fill" style="width: 95%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>PHOTOSHOP</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="fill" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>ILLUSTRATOR</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="fill" style="width: 90%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <div class="section-watermark">
+                <span class="watermark">Contact</span>
+                <h2>Contact Me</h2>
+            </div>
+            <p>Get in touch with me through any of these channels</p>
+        </div>
+        <div class="contact-grid">
+            <a href="tel:+919529860298" class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+                <h3>Phone</h3>
+                <p>+91 9529860298</p>
+            </a>
+            <a href="https://wa.me/919529860298" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                </div>
+                <h3>WhatsApp</h3>
+                <p>Send me a message</p>
+            </a>
+            <a href="mailto:ketankini0708@gmail.com" class="contact-card" id="email-link">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <h3>Email</h3>
+                <p>ketankini0708@gmail.com</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ketan Kini. All Rights Reserved.</p>
+    </footer>
+    <script>
+        // Handle email link to work properly on both mobile and desktop
+        document.getElementById('email-link').addEventListener('click', function(e) {
+            // Check if device is mobile
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            if (!isMobile) {
+                // On desktop, prevent default mailto and open Gmail web compose
+                e.preventDefault();
+                window.open('https://mail.google.com/mail/?view=cm&fs=1&to=ketankini0708@gmail.com', '_blank');
+            }
+            // On mobile, let the default mailto: behavior work (opens Gmail app)
+        });
+
+        document.querySelectorAll('.project-card--clickable').forEach((card) => {
+            const openProject = () => window.open(card.dataset.projectUrl, '_blank', 'noopener');
+
+            card.addEventListener('click', (event) => {
+                if (event.target.closest('.project-links a')) {
+                    return;
+                }
+
+                openProject();
+            });
+
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openProject();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
