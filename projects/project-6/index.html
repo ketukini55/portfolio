@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Colorization Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            --black: #0d0d0d;
+            --gold: #e0a631;
+            --white: #ffffff;
+            --grey: #888888;
+            --bar-bg: #2a2a2a;
+            --slider-pos: 50%;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            padding: 24px;
+        }
+
+        header {
+            margin-bottom: 24px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        header a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+            margin-bottom: 12px;
+        }
+
+        header a:hover {
+            opacity: 0.8;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            color: var(--grey);
+            font-size: 0.95rem;
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        /* Slider Container */
+        .slider-container {
+            position: relative;
+            width: min(100%, 500px);
+            aspect-ratio: 821 / 1024;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            user-select: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        /* The colorized (after) image overlay */
+        .image-after {
+            clip-path: polygon(0 0, var(--slider-pos) 0, var(--slider-pos) 100%, 0 100%);
+            z-index: 2;
+        }
+        
+        /* The dividing line */
+        .slider-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: var(--slider-pos);
+            width: 3px;
+            background: var(--white);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        /* The drag handle */
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            left: var(--slider-pos);
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            z-index: 11;
+            transform: translate(-50%, -50%);
+            cursor: ew-resize;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            transition: background-color 0.2s;
+        }
+
+        .slider-container:hover .slider-button {
+            background-color: var(--white);
+        }
+
+        .slider-button::before,
+        .slider-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .slider-button::before {
+            border-width: 5px 7px 5px 0;
+            border-color: transparent var(--black) transparent transparent;
+            margin-right: 2px;
+        }
+
+        .slider-button::after {
+            border-width: 5px 0 5px 7px;
+            border-color: transparent transparent transparent var(--black);
+            margin-left: 2px;
+        }
+
+        /* Transparent interactive range slider input overlay */
+        .slider-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 20;
+            cursor: ew-resize;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        /* Label badges */
+        .label {
+            position: absolute;
+            bottom: 16px;
+            background: rgba(13, 13, 13, 0.75);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            z-index: 5;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: opacity 0.3s;
+        }
+
+        .label-before {
+            right: 16px;
+        }
+
+        .label-after {
+            left: 16px;
+        }
+
+        /* Hide labels when user is actively dragging for a cleaner comparison */
+        .slider-container:active .label {
+            opacity: 0;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 16px;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .label {
+                bottom: 12px;
+                padding: 4px 10px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../../index.html">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to portfolio
+        </a>
+        <h1>Image Colorization</h1>
+        <p>Use the slider below to compare the original black and white image with the colorized version adjusted using Hue & Saturation.</p>
+    </header>
+
+    <div class="slider-container">
+        <!-- Before: Original Black & White -->
+        <div class="slider-image image-before">
+            <img src="PhotoshopExtension_Image (8).png" alt="Original Black and White Image">
+        </div>
+        
+        <!-- After: Colorized with Hue & Saturation -->
+        <div class="slider-image image-after">
+            <img src="colorize.png" alt="Colorized Image">
+        </div>
+
+        <div class="label label-after">Colorized</div>
+        <div class="label label-before">Original</div>
+        
+        <div class="slider-line"></div>
+        <div class="slider-button"></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" id="slider-range" aria-label="Before and after comparison slider">
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider-range');
+        const container = document.querySelector('.slider-container');
+        
+        slider.addEventListener('input', (e) => {
+            container.style.setProperty('--slider-pos', `${e.target.value}%`);
+        });
+    </script>
+</body>
+</html>
