@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chalo App UI Design Preview - Ketan Kini Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            --black: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --gold: #e0a631;
+            --white: #ffffff;
+            --grey: #888888;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Poppins', Arial, sans-serif;
+            padding: 40px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: min(100%, 1100px);
+            margin-bottom: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .back-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .figma-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: var(--black);
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: opacity 0.3s, transform 0.2s;
+        }
+
+        .figma-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        main {
+            width: min(100%, 1100px);
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+        }
+
+        .project-header {
+            margin-bottom: 24px;
+        }
+
+        .project-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+
+        .project-header p {
+            color: var(--grey);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 800px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            background: #2a2a2a;
+            color: var(--gold);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .preview-container {
+            margin-top: 28px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #121212;
+            padding: 20px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .preview-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: var(--grey);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-link">← Back to Portfolio</a>
+        <a href="https://www.figma.com/design/dCYKZvJPeMyLBeoBWhJP19/chalo?node-id=0-1&t=9ohgnh7avR0HBTeg-1" target="_blank" rel="noopener" class="figma-btn">
+            <span>View Design in Figma</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+    </header>
+
+    <main>
+        <div class="project-header">
+            <h1>Chalo App UI Design</h1>
+            <p>A comprehensive mobile application UI/UX concept for the Chalo transit &amp; bus ticketing platform. Designed in Figma with intuitive user onboarding, mobile bus pass purchasing, live vehicle tracking interfaces, and clean OTP verification flows.</p>
+            <div class="tags">
+                <span class="tag">UI/UX Design</span>
+                <span class="tag">Figma</span>
+                <span class="tag">Mobile App</span>
+                <span class="tag">Transit UI</span>
+            </div>
+        </div>
+
+        <div class="preview-container">
+            <img src="chalo.png" alt="Chalo App UI Design Figma Preview">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ketan Kini. Figma Design showcase.</p>
+    </footer>
+</body>
+</html>
